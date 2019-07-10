@@ -24,6 +24,7 @@ public class CleartripHotel extends DriverBase {
 
     @FindBy(id = "travellersOnhome")
     private WebElement travellerSelection;
+
     @FindBy(xpath = "//a[text() ='Indiranagar, Bangalore, Karnataka, India']")
     private WebElement locationSuggetion;
 
@@ -45,6 +46,7 @@ public class CleartripHotel extends DriverBase {
     public void clickOnHotels(){
         hotelLink.click();
     }
+
     public void enterLocation(String location){
         localityTextBox.sendKeys(location);
     }
@@ -52,13 +54,16 @@ public class CleartripHotel extends DriverBase {
     public void setTravellerSelection(String travellers){
         new Select(travellerSelection).selectByVisibleText(travellers);
     }
+
     public void clickOnSearchButton(){
         searchButton.click();
     }
+
     public void selectLocationFromSuggetions(){
         DriverHelper.explicitWaitForVisibilityOfElement(driver, By.xpath("//a[text() ='Indiranagar, Bangalore, Karnataka, India']"));
         driver.findElement(By.xpath("//a[text() ='Indiranagar, Bangalore, Karnataka, India']")).click();
     }
+
     public boolean isSearchSummaryDisplayed(){
         try{
             DriverHelper.explicitWaitForElementToBeClickable(driver, By.xpath("//a[@data-text='Indiranagar']"));
@@ -67,13 +72,14 @@ public class CleartripHotel extends DriverBase {
             return false;
         }
     }
+
     public void selectCheckInDate(){
         DriverHelper.explicitWaitForElementToBeClickable(driver, By.xpath("//span[text() = 'July']/ancestor::div[@class='monthBlock first']//table[@class = 'calendar']//a[text()='27']"));
         selectheckInDate.click();
     }
+
     public void selectCheckOutDate(){
         DriverHelper.explicitWaitForElementToBeClickable(driver, By.xpath("//span[text() = 'July']/ancestor::div[@class='monthBlock first']//table[@class = 'calendar']//a[text()='28']"));
         selectheckOutDate.click();
     }
-
 }

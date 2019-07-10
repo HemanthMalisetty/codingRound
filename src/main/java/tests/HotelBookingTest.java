@@ -1,11 +1,5 @@
 package tests;
 
-import com.sun.javafx.PlatformUtil;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CleartripHotel;
@@ -14,9 +8,7 @@ import utility.DriverBase;
 public class HotelBookingTest extends DriverBase {
 
     @Test
-    public void shouldBeAbleToSearchForHotels() throws InterruptedException {
-
-        driver.get("https://www.cleartrip.com/");
+    public void shouldBeAbleToSearchForHotels() {
 
         CleartripHotel ch = new CleartripHotel(driver);
 
@@ -35,6 +27,5 @@ public class HotelBookingTest extends DriverBase {
         ch.clickOnSearchButton();
 
         Assert.assertTrue(ch.isSearchSummaryDisplayed(), "Search summary is not displaying");
-
     }
 }

@@ -22,11 +22,13 @@ public class DriverBase {
             ops.addArguments("--disable-notifications");
             driver = new ChromeDriver(ops);
             driver.manage().window().maximize();
+            driver.get("https://www.cleartrip.com/");
         }
         if (PlatformUtil.isLinux()){
             System.setProperty("webdriver.chrome.driver","chromedriver_linux");
         }
     }
+
     @AfterTest
     public void closeBrowser(){
         driver.close();

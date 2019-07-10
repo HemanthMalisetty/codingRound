@@ -9,6 +9,7 @@ import utility.DriverBase;
 import utility.DriverHelper;
 
 public class CleartripFlights extends DriverBase {
+
     WebDriver driver;
 
     @FindBy(id = "OneWay")
@@ -38,24 +39,30 @@ public class CleartripFlights extends DriverBase {
     public void clikOnOneWayRadioButton(){
         oneWayRadioButton.click();
     }
+
     public void enterFromLocation(String fromLocationText){
         fromLocation.clear();
         fromLocation.sendKeys(fromLocationText);
     }
+
     public void selectLocationFromsuggestions(String locationName){
         DriverHelper.explicitWaitForVisibilityOfElement(driver, By.xpath("//li[@class = 'list']//a[contains(text(), '"+ locationName +"')]"));
         driver.findElement(By.xpath("//li[@class = 'list']//a[contains(text(), '"+ locationName +"')]")).click();
     }
+
     public void enterToLocation(String toLocationText){
         toLocation.clear();
         toLocation.sendKeys(toLocationText);
     }
+
     public void selectDataOfJourney(){
         dateOfjourney.click();
     }
+
     public void clickOnSearchbutton(){
         searchButton.click();
     }
+
     public boolean isSearchSummaryDisplayed(){
         try{
             DriverHelper.explicitWaitForElementToBeClickable(driver, By.xpath("//li[@class = 'allFlights']"));
